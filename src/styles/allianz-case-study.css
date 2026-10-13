@@ -1,0 +1,38 @@
+/* Allianz blue sampled from Frame 15.png; scoped to project identity. */
+.allianz-case { --case-accent: #003781; }
+.allianz-case .case-hero h1 { max-width: var(--case-reading-width); }
+.allianz-case .case-hero-square { background: var(--case-accent); }
+.allianz-case .case-metadata > div:nth-child(2) { grid-column: auto; }
+.allianz-story-unit { margin-block-start: var(--space-24); }
+.allianz-story-unit h3, .allianz-statement { font-size: var(--text-quote); line-height: var(--leading-h2); font-weight: var(--weight-label); }
+.allianz-pattern-map { margin: var(--space-12) 0 0; }
+.allianz-pattern-map > div { display: grid; gap: var(--space-2); padding-block: var(--space-4); border-bottom: var(--rule); }
+.allianz-pattern-map dt { font-size: var(--text-label); font-weight: var(--weight-heading); text-transform: uppercase; color: var(--case-accent); }
+.allianz-pattern-map dd { margin: 0; }
+.allianz-statement { margin-block-start: var(--space-12); max-width: var(--case-reading-width); }
+.allianz-tradeoff { display: grid; gap: var(--space-8); margin: var(--space-12) 0 0; }
+.allianz-tradeoff dd { margin: var(--space-4) 0 0; }
+.allianz-tradeoff > div + div { border-top: var(--rule-strong); padding-block-start: var(--space-8); }
+.allianz-indent-spec { padding: 0; margin: var(--space-12) 0 0; list-style: none; }
+.allianz-indent-spec li { display: flex; justify-content: space-between; gap: var(--space-4); border-inline-start: var(--rule-strong); padding: var(--space-3); margin-inline-start: calc(var(--level) * var(--space-6)); }
+.allianz-indent-spec li:nth-child(1) { --level: 0; }
+.allianz-indent-spec li:nth-child(2) { --level: 1; }
+.allianz-indent-spec li:nth-child(3) { --level: 2; }
+.allianz-indent-spec li:nth-child(4) { --level: 3; }
+.allianz-outcome-flow { padding: 0; list-style: none; margin: var(--space-12) 0 0; border-inline-start: var(--space-1) solid var(--case-accent); padding-inline-start: var(--space-6); }
+.allianz-outcome-flow li { display: flex; flex-direction: column; gap: var(--space-3); font-size: var(--text-h3); padding-block: var(--space-2); }
+.allianz-outcome-flow li span { font-size: var(--text-body); color: var(--case-accent); }
+/* The process itself anchors the ending; additional closing geometry is unnecessary. */
+.allianz-case #outcome::before, .allianz-case #reflection::before, .allianz-case #reflection::after { display: none; }
+.allianz-case .case-article > .case-chapter + .case-chapter { margin-block-start: var(--space-24); }
+@media (min-width: 48rem) {
+  .allianz-story-unit, .allianz-case .case-article > .case-chapter + .case-chapter { margin-block-start: calc(var(--space-32) + var(--space-8)); }
+  .allianz-pattern-map > div { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--grid-gap); }
+  .allianz-tradeoff { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .allianz-tradeoff > div + div { border-top: 0; border-inline-start: var(--rule-strong); padding-block-start: 0; padding-inline-start: var(--space-8); }
+}
+
+.allianz-implementation .allianz-statement { margin: 0; font-size: var(--text-h2); line-height: var(--leading-h2); }
+.allianz-supporting-media { width: 100%; margin-inline-start: auto; }
+.allianz-video video { aspect-ratio: auto; height: auto; object-fit: contain; background: var(--color-canvas); }
+@media (min-width: 48rem) { .allianz-supporting-media { width: 75%; } }

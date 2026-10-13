@@ -1,0 +1,5 @@
+.brand-logo { display: flex; align-items: center; justify-content: start; width: calc(var(--space-32) + var(--space-16)); height: var(--space-12); }
+.brand-logo img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: left center; }
+.brand-logo--preview { width: 64%; height: var(--space-24); }
+.project-preview--locked .project-media .brand-logo img { padding: 0; object-fit: contain; object-position: center; }
+.project-preview--locked .project-media:has(.brand-logo) { background: var(--color-canvas); }

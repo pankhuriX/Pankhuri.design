@@ -1,0 +1,17 @@
+/* Blurred abstract sheets communicate locked work without sending protected media. */
+.work-gate { position: relative; isolation: isolate; overflow: hidden; min-height: calc(var(--space-32) * 4); display: grid; place-items: center; padding: var(--space-12) var(--space-6); }
+.work-gate-preview { position: absolute; inset: 0; z-index: -1; filter: blur(var(--space-2)); opacity: .4; pointer-events: none; user-select: none; }
+.work-gate-sheet { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-8); padding-block: var(--space-8); }
+.work-gate-sheet > div:last-child { height: var(--space-32); background: var(--color-surface); border-inline-end: var(--space-2) solid var(--color-blue); }
+.work-gate-sheet span { display: block; height: var(--space-4); margin-block: var(--space-4); background: var(--color-border); }
+.work-gate-sheet span:last-child { width: 64%; }
+.work-gate-prompt { width: 100%; max-width: var(--reading-max); padding: var(--space-8); background: var(--color-canvas); }
+.work-gate-prompt h3 { font-size: var(--text-h2); line-height: var(--leading-h2); margin-block: var(--space-4) var(--space-6); }
+.work-gate-prompt form { margin-block-start: var(--space-6); display: grid; gap: var(--space-3); }
+.work-gate-prompt label { font-size: var(--text-label); }
+.work-gate-prompt input, .work-gate-prompt button { min-height: var(--touch-target); padding: var(--space-3) var(--space-4); font: inherit; border: var(--rule-strong); }
+.work-gate-prompt input { background: var(--color-canvas); color: var(--color-ink); min-width: 0; width: 100%; }
+.work-gate-prompt button { background: var(--color-ink); color: var(--color-canvas); cursor: pointer; }
+.work-gate-prompt button:disabled { opacity: .6; cursor: wait; }
+.work-gate-prompt [role="alert"]:empty { display: none; }
+@media (max-width:47.999rem) { .work-gate { padding: var(--space-6) 0; } .work-gate-prompt { padding: var(--space-6); } }

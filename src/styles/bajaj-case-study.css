@@ -1,0 +1,21 @@
+/* Project purple sampled from the supplied Bajaj UI (#5c2d90); no global palette changes. */
+.bajaj-case { --case-accent: #5c2d90; }
+.bajaj-case .case-hero h1 { max-width: var(--case-reading-width); }
+.bajaj-outcomes { display: grid; gap: var(--space-8) var(--grid-gap); margin: var(--space-12) 0; }
+.bajaj-outcomes dt { font-size: var(--text-h3); line-height: var(--leading-h3); font-weight: var(--weight-label); }
+.bajaj-outcomes > div:first-child dt { font-size: var(--text-h1); line-height: var(--leading-h1); }
+.bajaj-outcomes dd { margin: var(--space-4) 0 0; }
+.bajaj-prototype video { aspect-ratio: auto; height: auto; max-height: calc(100svh - var(--case-header-height) - var(--space-16)); object-fit: contain; background: var(--color-canvas); }
+.bajaj-case .case-next > p + p { margin-block-start: var(--space-3); }
+@media (min-width: 48rem) { .bajaj-outcomes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* A single decision is a compact story; separation comes between decisions. */
+.bajaj-case .case-decision { margin-block-start: var(--space-24); }
+.bajaj-case .case-decision > .case-media { width: 100%; margin-block-start: var(--space-12); }
+.bajaj-case .case-decision figcaption { margin-block-start: var(--space-3); }
+.bajaj-supporting-media { max-width: var(--case-reading-width); margin-inline-start: auto; }
+.bajaj-supporting-media .case-media { margin-block-start: var(--space-16); }
+@media (min-width: 48rem) {
+  .bajaj-case .case-decision { margin-block-start: calc(var(--space-32) + var(--space-8)); }
+  .bajaj-supporting-media { width: 75%; }
+}

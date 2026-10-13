@@ -1,0 +1,75 @@
+.hyundai-case { --case-accent: var(--color-blue); }
+.hyundai-case .case-hero h1 { max-width: none; }
+.hyundai-case .case-metadata > div:nth-child(2) { grid-column: auto; }
+.hyundai-story { margin-block-start: var(--space-24); }
+.hyundai-research-pair { display: grid; gap: var(--space-8); align-items: start; margin-block-start: var(--space-8); }
+.hyundai-research-pair > .case-prose, .hyundai-research-pair > .case-media { margin: 0; }
+.hyundai-media { margin-inline: 0; margin-block-end: 0; }
+.hyundai-image-open { display: block; width: 100%; padding: 0; border: 0; background: var(--color-canvas); cursor: zoom-in; }
+.hyundai-media img { width: 100%; height: auto; object-fit: contain; }
+.hyundai-media figcaption button { padding: 0; min-height: var(--touch-target); border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+.hyundai-setup { display: grid; gap: var(--space-6); margin: var(--space-12) 0 0; }
+.hyundai-setup > div { border-top: var(--rule); padding-block-start: var(--space-4); }
+.hyundai-setup dt { font-weight: var(--weight-heading); }
+.hyundai-setup dd { margin: var(--space-3) 0 0; }
+.hyundai-insights { list-style: none; padding: 0; margin: var(--space-12) 0 0; }
+.hyundai-insights li { display: grid; grid-template-columns: auto minmax(0,1fr); gap: var(--space-6); border-top: var(--rule); padding-block: var(--space-8); }
+.hyundai-insights h3 { margin: 0; font-size: var(--text-h3); line-height: var(--leading-h3); }
+.hyundai-insights p { margin-block-start: var(--space-4); max-width: var(--case-reading-width); }
+.hyundai-lightbox { width: calc(100vw - var(--space-8)); max-width: var(--content-max); max-height: calc(100dvh - var(--space-8)); padding: var(--space-4); border: var(--rule); background: var(--color-canvas); color: var(--color-ink); }
+.hyundai-lightbox::backdrop { background: color-mix(in srgb,var(--color-ink) 80%,transparent); }
+.hyundai-lightbox-content { display: flex; flex-direction: column; gap: var(--space-4); }
+.hyundai-lightbox-content > button { align-self: end; min-height: var(--touch-target); padding: var(--space-2) var(--space-4); border: var(--rule-strong); background: var(--color-canvas); color: inherit; font: inherit; cursor: pointer; }
+.hyundai-lightbox img { max-height: 75dvh; object-fit: contain; }
+.hyundai-lightbox a { align-self: start; font-size: var(--text-label); }
+@media (min-width:48rem) {
+  .hyundai-research-pair { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  .hyundai-setup { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+.hyundai-research-pair h3 + p { margin-block-start: var(--space-4); }
+.hyundai-story > h3 { margin-block: var(--space-4) var(--space-6); }
+.hyundai-reasoning { margin: var(--space-6) 0 0; display: grid; gap: var(--space-6); }
+.hyundai-reasoning dt { font-size: var(--text-label); font-weight: var(--weight-heading); text-transform: uppercase; }
+.hyundai-reasoning dd { margin: var(--space-2) 0 0; }
+.hyundai-comparison { display: grid; gap: var(--space-8); margin-block-start: var(--space-12); }
+.hyundai-comparison .case-media { margin-block-start: var(--space-4); }
+.hyundai-proposal-detail { display: grid; gap: var(--space-8); align-items: start; }
+.hyundai-proposal-detail .case-media { margin-block-start: var(--space-6); }
+.hyundai-evidence-chain { list-style: none; border-inline-start: var(--space-1) solid var(--case-accent); padding-inline-start: var(--space-6); margin-block: var(--space-12) 0; }
+.hyundai-evidence-chain li { font-size: var(--text-label); text-transform: uppercase; }
+.hyundai-evidence-chain li + li::before { content: '↓'; display: block; margin-block: var(--space-3); color: var(--case-accent); }
+.hyundai-case #outcome::before, .hyundai-case #reflection::after { display: none; }
+@media (min-width:48rem) {
+  .hyundai-proposal-detail { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+}
+@media (min-width:80rem) {
+  .hyundai-comparison { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+.hyundai-comparison figcaption { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: start; }
+.hyundai-comparison figcaption button { white-space: nowrap; }
+.hyundai-more { margin-block-start: calc(var(--space-32) + var(--space-8)); padding-inline-start: var(--space-6); border-inline-start: var(--space-1) solid var(--case-accent); }
+.hyundai-more h2 { margin-block: var(--space-6); font-size: var(--text-h2); line-height: var(--leading-h2); }
+.hyundai-more > p:last-child { max-width: var(--case-reading-width); }
+@media (max-width:47.999rem) {
+  .hyundai-more { margin-block-start: var(--space-24); }
+}
+/* Closing context uses the article's 12-column grid: simulator 9, team 7. */
+.hyundai-context { margin-block-start: var(--space-24); }
+.hyundai-context > p { margin-block-start: var(--space-6); }
+.hyundai-context-simulator { width: 75%; }
+.hyundai-context-simulator .hyundai-image-open img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: center; }
+.hyundai-context-team { width: calc(100% * 7 / 12); margin-inline-start: auto; margin-block-start: var(--space-24); }
+.hyundai-context-team .case-media { margin-block-start: 0; }
+@media (max-width:47.999rem) {
+  .hyundai-context-simulator, .hyundai-context-team { width: 100%; }
+}
+.hyundai-more { position: relative; border-inline-start: 0; padding-inline-start: 0; padding-inline-end: var(--space-24); }
+.hyundai-more-accents { position: absolute; inset-inline-end: 0; inset-block-start: 0; display: flex; align-items: end; gap: var(--space-3); }
+.hyundai-more-accents .geometric-accent--circle { width: var(--space-12); }
+@media (max-width:47.999rem) {
+  .hyundai-more { padding-inline-end: 0; }
+  .hyundai-more-accents { position: static; margin-block-end: var(--space-6); }
+  .hyundai-more-accents .geometric-accent--circle { display: none; }
+}
+.hyundai-more > .brand-logo { margin-block-end: var(--space-8); }

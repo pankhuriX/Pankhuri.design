@@ -1,0 +1,9 @@
+/* Shared flat geometry. Parent composition owns scale and placement. */
+.geometric-accent { display: block; width: var(--space-6); aspect-ratio: 1; background: var(--accent-fill); pointer-events: none; flex-shrink: 0; }
+.geometric-accent--red { --accent-fill: var(--color-red); }
+.geometric-accent--blue { --accent-fill: var(--color-blue); }
+.geometric-accent--yellow { --accent-fill: var(--color-yellow); }
+.geometric-accent--ink { --accent-fill: var(--color-ink); }
+.geometric-accent--circle { border-radius: 50%; }
+.geometric-accent--triangle { clip-path: polygon(50% 0,100% 100%,0 100%); }
+.geometric-accent--outline { background: transparent; border: 1px solid var(--accent-fill); }

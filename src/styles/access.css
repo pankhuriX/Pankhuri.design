@@ -1,0 +1,7 @@
+.case-access { max-width: var(--reading-max); padding-block: var(--space-24); }
+.case-access h1 { font-size: var(--text-h1); line-height: var(--leading-h1); text-transform: none; margin-block: var(--space-6); }
+.case-access form { display: grid; gap: var(--space-3); max-width: var(--reading-max); margin-block: var(--space-8); }
+.case-access input { font: inherit; color: var(--color-ink); background: var(--color-canvas); border: var(--rule-strong); border-radius: 0; min-height: var(--touch-target); padding: var(--space-3); width: 100%; }
+.case-access button { font: inherit; background: var(--color-ink); color: var(--color-canvas); border: var(--rule-strong); min-height: var(--touch-target); padding: var(--space-3) var(--space-4); cursor: pointer; justify-self: start; }
+.case-access button:disabled { opacity: .6; cursor: wait; }
+.case-access [role="alert"] { font-size: var(--text-label); }
