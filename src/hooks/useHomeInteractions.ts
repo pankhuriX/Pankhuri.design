@@ -8,22 +8,22 @@ export function useHomeInteractions(workAccess = false) {
     const media = matchMedia('(min-width: 80rem) and (hover: hover) and (pointer: fine)');
     const pointer = matchMedia('(min-width: 80rem) and (hover: hover) and (pointer: fine)');
     const hero = document.querySelector<HTMLElement>('.hero');
+    const geometry = hero?.querySelector<HTMLElement>('.hero-geometry');
     const list = document.querySelector<HTMLElement>('.project-list, .work-gate');
     const cursor = document.querySelector<HTMLElement>('.preview-cursor');
-    if (!hero || !list || !cursor || reduced) return;
+    if (!hero || !geometry || !list || !cursor || reduced) return;
     const sheets = list.matches('.project-list') ? [...list.children] as HTMLElement[] : [];
     const targets = [...document.querySelectorAll<HTMLElement>('[data-preview-cursor]')];
     let heroVisible = false;
     let frame = 0;
     let cursorFrame = 0;
-    let x = 0, y = 0, scroll = 0;
+    let x = 0, y = 0;
     let active: HTMLElement | null = null;
-    let heroBounds = hero.getBoundingClientRect();
+    let heroBounds = geometry.getBoundingClientRect();
     const paint = () => {
       frame = 0;
       hero.style.setProperty('--pointer-x', String(x));
       hero.style.setProperty('--pointer-y', String(y));
-      hero.style.setProperty('--scroll-depth', String(scroll));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(paint); };
     const reset = () => { x = y = 0; schedule(); };
@@ -33,11 +33,7 @@ export function useHomeInteractions(workAccess = false) {
       y = Math.max(-1, Math.min(1, (event.clientY - heroBounds.top) / heroBounds.height * 2 - 1));
       schedule();
     };
-    const scrollHero = () => {
-      heroBounds = hero.getBoundingClientRect();
-      scroll = Math.max(0, Math.min(1, -heroBounds.top / heroBounds.height));
-      schedule();
-    };
+    const refreshHeroBounds = () => { heroBounds = geometry.getBoundingClientRect(); };
     const hideCursor = () => {
       active?.removeAttribute('data-cursor-active');
       active = null;
@@ -73,20 +69,20 @@ export function useHomeInteractions(workAccess = false) {
       const top = Math.max(base, header);
       list.style.setProperty('--stack-header', `${top}px`);
       list.classList.toggle('project-list--stack', media.matches && tallest + top + step * (sheets.length - 1) <= innerHeight);
-      heroBounds = hero.getBoundingClientRect();
+      heroBounds = geometry.getBoundingClientRect();
       cursorRadius = parseFloat(getComputedStyle(cursor).width) / 2 || 0;
     };
     const bindHero = (enabled: boolean) => {
       hero.classList.toggle('hero--visible', enabled && pointer.matches);
-      hero.removeEventListener('pointermove', moveHero);
-      hero.removeEventListener('pointerleave', reset);
-      window.removeEventListener('scroll', scrollHero);
+      geometry.removeEventListener('pointermove', moveHero);
+      geometry.removeEventListener('pointerleave', reset);
+      geometry.removeEventListener('pointerenter', refreshHeroBounds);
       if (enabled && pointer.matches) {
-        hero.addEventListener('pointermove', moveHero, { passive: true });
-        hero.addEventListener('pointerleave', reset);
-        window.addEventListener('scroll', scrollHero, { passive: true });
-        scrollHero();
-      } else { x = y = scroll = 0; schedule(); }
+        geometry.addEventListener('pointermove', moveHero, { passive: true });
+        geometry.addEventListener('pointerleave', reset);
+        geometry.addEventListener('pointerenter', refreshHeroBounds, { passive: true });
+        refreshHeroBounds();
+      } else { x = y = 0; schedule(); }
     };
     const observer = new IntersectionObserver(entries => {
       heroVisible = entries[0].isIntersecting;
@@ -126,7 +122,7 @@ export function useHomeInteractions(workAccess = false) {
       });
       list.classList.remove('project-list--stack');
       sheets.forEach(sheet => sheet.style.removeProperty('--sheet-index'));
-      ['--pointer-x', '--pointer-y', '--scroll-depth'].forEach(name => hero.style.removeProperty(name));
+      ['--pointer-x', '--pointer-y'].forEach(name => hero.style.removeProperty(name));
     };
   }, [reduced, workAccess]);
 }

@@ -10,7 +10,7 @@
 .hero-bottom { grid-column: 1 / -1; display: flex; justify-content: flex-end; align-items: center; gap: var(--space-8); border-bottom: var(--rule-strong); padding-block-end: var(--space-4); }
 .hero-bottom .hero-scroll { border: 0; padding: 0; }
 .hero-grid-toggle { font-size: var(--text-label); line-height: var(--leading-label); font-weight: var(--weight-label); letter-spacing: var(--tracking-label); }
-@media (min-width: 48rem) { .layout-grid-guides span:nth-child(-n+8) { display: block; } .hero-bottom { grid-row: 5; } }
+@media (min-width: 48rem) { .layout-grid-guides span:nth-child(-n+8) { display: block; } }
 @media (min-width: 80rem) { .layout-grid-guides span:nth-child(n) { display: block; } }
 @media (prefers-reduced-motion: reduce) { .layout-grid-overlay { transition: none; } }
 @media print { .layout-grid-overlay, .grid-toggle { display: none; } }
