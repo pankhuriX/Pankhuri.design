@@ -1,9 +1,11 @@
+import { CaseIntro } from '../components/case-study/CaseIntro';
 import { PageShell } from '../components/layout/PageShell';
 import { PageContainer } from '../components/layout/PageContainer';
 import { CaseChapter } from '../components/case-study/CaseChapter';
 import { CaseImage, CaseVideo } from '../components/case-study/CaseMedia';
 import { CaseNavigation } from '../components/case-study/CaseNavigation';
 import '../styles/case-study.css';
+import '../styles/case-editorial.css';
 import '../styles/bajaj-case-study.css';
 const root = '/images/bajaj-health/';
 const chapters = ['Overview', 'Challenge', 'Research', 'Design decisions', 'Final experience', 'Outcome', 'Reflection'].map((title, i) => ({title, number: `0${i}`, id: ['overview','challenge','research','decisions','final-experience','outcome','reflection'][i]}));
@@ -27,16 +29,17 @@ const outcomes = [
   ['Clear and reliable', 'User feedback on finding local doctors and using the Bajaj Health Card.'],
 ];
 export function BajajHealthPage() {
-  return <div className="reckitt-case bajaj-case"><PageShell><PageContainer>
-    <header className="case-hero">
-      <span className="case-hero-orbit" aria-hidden="true" /><span className="case-hero-square" aria-hidden="true" />
-      <p className="number-label case-label">CASE STUDY — 03</p>
-      <h1>Bajaj Health:<br />Designing Trust in Digital Healthcare</h1>
-      <p className="case-subtitle">Making tele-consultation understandable for first-time and local-language users without turning guidance into another barrier.</p>
-      <ul className="case-tags number-label"><li>Healthcare UX</li><li>Mobile Product Design</li><li>User Trust</li></ul>
-      <CaseImage root={root} file="Cover.png" alt="Bajaj Health mobile app screens presenting the tele-consultation experience." caption="Bajaj Health — designing trust in digital healthcare" width={1876} height={1092} eager />
+  return <div className="reckitt-case case-editorial bajaj-case"><PageShell><PageContainer>
+    <CaseIntro
+      label="BAJAJ HEALTH — DIGITAL HEALTHCARE"
+      heading="Making online doctor booking easier to understand"
+      subcaption="Helping first-time users find doctors, understand their options, and book appointments with more confidence."
+      keywords="PRODUCT DESIGN · HEALTHCARE · MOBILE UX · USER RESEARCH"
+      cover={<CaseImage root={root} file="Cover.png" alt="Bajaj Health mobile app screens presenting the tele-consultation experience." caption="Bajaj Health — designing trust in digital healthcare" width={1876} height={1092} eager />}
+      whiteCover
+    >
       <dl className="case-metadata">{metadata.map(([label,value])=><div key={label}><dt className="number-label">{label}</dt><dd>{value}</dd></div>)}</dl>
-    </header>
+    </CaseIntro>
     <div className="case-body"><CaseNavigation items={chapters} caseNumber="03" /><article className="case-article" aria-label="Bajaj Health case study">
       <CaseChapter id="overview" number="00" label="Overview" title="Designing confidence into digital care.">
         <div className="case-reading case-prose"><p>I was the sole hands-on designer, from user interviews and competitive analysis through research synthesis, information architecture, booking flows, high-fidelity interfaces, usability testing, and developer handoff.</p><p>The design manager provided direction and review, the product manager owned requirements and prioritization, and the development team owned implementation.</p></div>
@@ -53,7 +56,7 @@ export function BajajHealthPage() {
       </CaseChapter>
       <CaseChapter id="decisions" number="03" label="Design judgment" title="Confidence had to be designed into the journey.">
         <div className="case-reading case-prose"><p>I treated trust as a sequence of interaction decisions rather than a visual styling problem.</p><ol className="case-principles">{['Explain without blocking','Make the next action obvious','Guide users to a suitable doctor','Make trust visible','Reassure before commitment'].map((text,i)=><li key={text}><span className="number-label">{`0${i+1}`}</span>{text}</li>)}</ol></div>
-        {decisions.map((decision,i)=><CaseChapter key={decision.title} number={`03.${i+1}`} label="Design decision" decision title={decision.title}>
+        {decisions.map((decision,i)=><CaseChapter key={decision.title} number={`03.${i+1}`} label={["Onboarding", "Starting points", "Doctor discovery", "Transparency", "Booking confirmation"][i]} decision title={decision.title}>
           <div className="case-reading case-prose"><p>{decision.copy}</p></div>
           {decision.file && <CaseImage root={root} file={decision.file} alt={decision.alt!} caption={decision.caption!} width={decision.width!} height={decision.height!} />}
           {i === 0 && <div className="bajaj-supporting-media">
@@ -63,7 +66,7 @@ export function BajajHealthPage() {
       </CaseChapter>
       <CaseChapter id="final-experience" number="04" label="Final experience" title="From uncertainty to a booked consultation.">
         <div className="case-reading case-prose"><p>Follow the journey from understanding the service to a confirmed consultation.</p></div>
-        <div className="case-media bajaj-prototype"><CaseVideo root={root} file="ScreenRecording_10-06-2026 15.MP4" poster="prototype-poster.jpg" caption="End-to-end prototype walkthrough of the tele-consultation journey." /></div>
+        <div className="case-media bajaj-prototype"><CaseVideo root={root} file="ScreenRecording_10-06-2026 15.mp4" assetVersion="18bab37f395f" poster="prototype-poster.jpg" caption="End-to-end prototype walkthrough of the tele-consultation journey." /></div>
       </CaseChapter>
       <CaseChapter id="outcome" number="05" label="Outcome" title="More confidence with less hesitation.">
         <div className="case-reading case-prose"><p>Usability-testing findings and qualitative user feedback. Faster completion was also indicated internally, but no verified percentage is available.</p></div>

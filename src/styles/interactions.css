@@ -5,7 +5,7 @@
 .preview-cursor { display: none; }
 @media (min-width: 80rem) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .project-list--stack { position: relative; isolation: isolate; }
-  .project-list--stack > .reveal { position: sticky; top: calc(var(--stack-header) + var(--sheet-index) * var(--space-12)); z-index: calc(1 + var(--sheet-index)); background: var(--color-canvas); animation: none; }
+  .project-list--stack > .reveal { position: sticky; top: calc(var(--stack-header) + var(--sheet-index) * var(--stack-visible-step, var(--space-12))); z-index: calc(1 + var(--sheet-index)); background: var(--color-canvas); animation: none; }
   /* Keyboard focus must not remain underneath a later sheet. */
   .project-list--stack:focus-within > .reveal { position: relative; top: auto; }
 }

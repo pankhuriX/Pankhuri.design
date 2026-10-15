@@ -55,7 +55,11 @@
   .hero-intro { margin-inline-start: 25%; }
 }
 @media (min-width:80rem) {
-  .hero .hero-grid { max-width: 1400px; width: calc(100% - var(--space-24)); padding-inline: 0; }
+  /* Header = its 48px touch target + two 24px paddings + the existing 1px rule.
+     Content may grow on short screens; no fixed height or clipping. */
+  .hero { min-height: calc(100svh - var(--touch-target) - var(--space-6) * 2 - 1px); display: flex; padding-block-end: var(--space-6); }
+  .hero .hero-grid { grid-template-rows: 1fr auto; }
+  .hero-main { align-content: center; }
   .hero-main { grid-template-columns: minmax(0,.9fr) minmax(0,1.15fr) minmax(0,.65fr); grid-template-areas: 'title geometry intro' 'principles geometry intro'; }
   .hero-intro { margin-inline-start: 0; align-self: end; }
   .hero-intro p { font-size: var(--text-body-lg); line-height: var(--leading-body-lg); }

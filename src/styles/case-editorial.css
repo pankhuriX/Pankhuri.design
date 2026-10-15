@@ -1,0 +1,16 @@
+/* Shared story-first presentation; product visuals and legacy annotations stay intact. */
+.case-editorial .case-hero h1 { max-width: 22ch; text-wrap: balance; }
+.case-editorial .case-hero > .case-label { color: var(--case-accent); }
+.case-editorial #outcome::before,
+.case-editorial #reflection::before,
+.case-editorial #reflection::after { content: none; display: none; }
+.case-editorial .case-hero .case-metadata { margin-block-start: var(--space-8); padding-block-start: var(--space-6); gap: var(--space-6) var(--grid-gap); }
+.case-editorial .hyundai-more { padding-inline-end: 0; }
+
+/* One opening rhythm across all projects, without changing body typography. */
+.case-editorial .case-intro h1 { max-width: 22ch; margin-block-start: var(--space-4); }
+.case-intro > .case-subtitle { margin-block-start: var(--space-6); }
+.case-intro > .case-tags { display: block; margin-block-start: var(--space-4); text-transform: uppercase; }
+.case-intro > .case-media { margin-block-start: var(--space-12); }
+.case-editorial .case-intro .case-metadata { margin-block-start: var(--space-12); }
+.case-intro--white-cover > .case-media figure > a { display: block; background: var(--color-white); padding: var(--space-3); }

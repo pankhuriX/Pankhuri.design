@@ -1,11 +1,13 @@
+import { CaseIntro } from '../components/case-study/CaseIntro';
+import { CaseImage } from '../components/case-study/CaseMedia';
 import { BrandLogo } from '../components/ui/BrandLogo';
-import { GeometricAccent } from '../components/ui/GeometricAccent';
 import { PageShell } from '../components/layout/PageShell';
 import { PageContainer } from '../components/layout/PageContainer';
 import { CaseChapter } from '../components/case-study/CaseChapter';
 import { CaseNavigation } from '../components/case-study/CaseNavigation';
 import { ExpandableCaseImage } from '../components/case-study/ExpandableCaseImage';
 import '../styles/case-study.css';
+import '../styles/case-editorial.css';
 import '../styles/hyundai-case-study.css';
 
 const root = '/images/hyundai/';
@@ -22,18 +24,21 @@ const insights = [
 ];
 
 export function HyundaiPage() {
-  return <div className="reckitt-case hyundai-case"><PageShell><PageContainer>
-    <header className="case-hero">
-      <p className="number-label case-label">Hyundai Motor Europe / EV route planning</p>
-      <h1>Designing EV route planning for real-world travel</h1>
-      <p className="case-subtitle">Understanding how charging, battery predictions, and route changes influence driver confidence during long-distance EV journeys.</p>
+  return <div className="reckitt-case case-editorial hyundai-case"><PageShell><PageContainer>
+    <CaseIntro
+      label="HYUNDAI MOTOR EUROPE — EV ROUTE PLANNING"
+      heading="Making long-distance electric driving easier to plan"
+      subcaption="Using usability studies to improve charging stops, battery predictions, and route planning."
+      keywords="USER RESEARCH · HMI · PROTOTYPING · EV"
+      cover={<CaseImage root={root} file="Cover.JPG" alt="In-car navigation display showing route guidance during an urban driving study." caption="Hyundai" width={5712} height={4284} eager />}
+      whiteCover
+    >
       <dl className="case-metadata">
         <div><dt className="number-label">Company</dt><dd>Hyundai Motor Europe Technical Center</dd></div>
         <div><dt className="number-label">Role</dt><dd>UX/UI Designer Intern</dd></div>
         <div><dt className="number-label">Timeline</dt><dd>May 2026 — 2026</dd></div>
-        <div><dt className="number-label">Focus</dt><dd>UX Research · HMI<br />Interaction Design · EV Route Planning</dd></div>
       </dl>
-    </header>
+    </CaseIntro>
     <div className="case-body"><CaseNavigation items={chapters} caseNumber="04" /><article className="case-article" aria-label="Hyundai EV route planning case study">
       <CaseChapter id="overview" number="00" label="Overview" title={<>Long-distance EV travel<br />is a continuous decision-making experience.</>}>
         <div className="case-reading case-prose"><p>Drivers make route decisions while battery level, charging stops, traffic, and predictions are constantly changing. My work focused on where drivers lose confidence and how clearer route-planning and charging interactions could support them.</p><p>I planned the benchmark study, developed the research materials, facilitated field evaluations, synthesized the findings, and translated the research into design recommendations and Figma proposals.</p></div>
@@ -86,7 +91,7 @@ export function HyundaiPage() {
         <div className="hyundai-context-simulator"><ExpandableCaseImage root={root} file="simulator-context.jpg" width={1500} height={2000} alt="In-car simulator with two seats, a large forward display, and a side-mounted control screen in the testing space." caption="Simulator-based evaluation helped test interaction concepts in a more realistic in-car context." /></div>
         <div className="hyundai-context-team"><ExpandableCaseImage root={root} file="team-context.jpg" width={2000} height={1367} alt="Team thank-you print featuring a group pictured beside Hyundai vehicles." caption="Cross-functional collaboration across research, design, and engineering shaped the study and synthesis." /></div>
       </section>
-      <section className="hyundai-more" aria-labelledby="hyundai-more-title"><div className="hyundai-more-accents" aria-hidden="true"><GeometricAccent shape="square" /><GeometricAccent shape="circle" outline /></div><BrandLogo src="/images/homepage/hyundai-logo.png" alt="Hyundai" /><p className="number-label">More from Hyundai</p><h2 id="hyundai-more-title">MORE WORK<br />COMING SOON.</h2><p>Additional Hyundai projects are currently being prepared for the portfolio. Selected work remains under NDA and will be shared where possible.</p></section>
+      <section className="hyundai-more" aria-labelledby="hyundai-more-title"><BrandLogo src="/images/homepage/hyundai-logo.png" alt="Hyundai" /><p className="number-label">More from Hyundai</p><h2 id="hyundai-more-title">MORE WORK<br />COMING SOON.</h2><p>Additional Hyundai projects are currently being prepared for the portfolio. Selected work remains under NDA and will be shared where possible.</p></section>
       <div className="case-next"><a className="arrow-link" href="/work/allianz-design-system">Next project — Allianz Design System <span aria-hidden="true">↗</span></a></div>
     </article></div>
   </PageContainer></PageShell></div>;

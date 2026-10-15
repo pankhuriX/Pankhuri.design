@@ -6,7 +6,7 @@ export const caseAsset = (name: string, root = assetRoot) => root + encodeURICom
 export function CaseImage({ file, alt, caption, width, height, eager = false, root = assetRoot }: { file: string; alt: string; caption: string; width: number; height: number; eager?: boolean; root?: string }) {
   return <Reveal className="case-media"><figure><a href={caseAsset(file, root)} target="_blank" rel="noopener noreferrer" aria-label={`${caption} — open full-size image in a new tab`}><img src={caseAsset(file, root)} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} decoding="async" /></a><figcaption><span>{caption}</span><a href={caseAsset(file, root)} target="_blank" rel="noopener noreferrer">View full size <span aria-hidden="true">↗</span><span className="case-sr-only"> (opens in a new tab)</span></a></figcaption></figure></Reveal>;
 }
-export function CaseVideo({ file, poster, caption, root = assetRoot, playbackGroup, loop = true }: { file: string; poster: string; caption: string; root?: string; playbackGroup?: string; loop?: boolean }) {
+export function CaseVideo({ file, poster, caption, root = assetRoot, playbackGroup, loop = true, assetVersion }: { file: string; poster: string; caption: string; root?: string; playbackGroup?: string; loop?: boolean; assetVersion?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const reduced = useReducedMotion();
   // Remember a deliberate native-control pause across viewport changes.
@@ -38,5 +38,5 @@ export function CaseVideo({ file, poster, caption, root = assetRoot, playbackGro
     if (reduced) pause();
     return () => { observer.disconnect(); if (playbackGroup) document.removeEventListener('case-video-play', onGroupPlay); document.removeEventListener('visibilitychange', sync); video.removeEventListener('pause', onPause); video.removeEventListener('play', onPlay); video.pause(); };
   }, [reduced, playbackGroup]);
-  return <figure className="case-video"><video ref={ref} muted loop={loop} playsInline controls preload="none" poster={caseAsset(poster, root)} aria-label={caption}><source src={caseAsset(file, root)} type="video/mp4" /></video><figcaption>{caption}</figcaption></figure>;
+  return <figure className="case-video"><video ref={ref} muted loop={loop} playsInline controls preload="none" poster={caseAsset(poster, root)} aria-label={caption}><source src={caseAsset(file, root) + (assetVersion ? `?v=${encodeURIComponent(assetVersion)}` : '')} type="video/mp4" /></video><figcaption>{caption}</figcaption></figure>;
 }

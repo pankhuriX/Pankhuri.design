@@ -13,9 +13,8 @@
 .bajaj-case .case-decision { margin-block-start: var(--space-24); }
 .bajaj-case .case-decision > .case-media { width: 100%; margin-block-start: var(--space-12); }
 .bajaj-case .case-decision figcaption { margin-block-start: var(--space-3); }
-.bajaj-supporting-media { max-width: var(--case-reading-width); margin-inline-start: auto; }
+.bajaj-supporting-media { width: 100%; }
 .bajaj-supporting-media .case-media { margin-block-start: var(--space-16); }
 @media (min-width: 48rem) {
   .bajaj-case .case-decision { margin-block-start: calc(var(--space-32) + var(--space-8)); }
-  .bajaj-supporting-media { width: 75%; }
 }

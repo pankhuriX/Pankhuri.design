@@ -15,3 +15,10 @@
 .work-gate-prompt button:disabled { opacity: .6; cursor: wait; }
 .work-gate-prompt [role="alert"]:empty { display: none; }
 @media (max-width:47.999rem) { .work-gate { padding: var(--space-6) 0; } .work-gate-prompt { padding: var(--space-6); } }
+
+/* Keep project hit areas available before protected case-study CSS is loaded. */
+.project-preview:has(.project-page-link) { position: relative; }
+.project-page-link { text-decoration: none; color: inherit; }
+.project-page-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.project-preview:has(.project-page-link) .media-pause { z-index: 2; }
+.project-preview:has(.project-page-link:focus-visible) { outline: var(--rule-focus); outline-offset: var(--space-1); }

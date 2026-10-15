@@ -1,9 +1,11 @@
+import { CaseIntro } from '../components/case-study/CaseIntro';
 import { PageShell } from '../components/layout/PageShell';
 import { PageContainer } from '../components/layout/PageContainer';
 import { CaseChapter } from '../components/case-study/CaseChapter';
 import { CaseImage, CaseVideo } from '../components/case-study/CaseMedia';
 import { CaseNavigation } from '../components/case-study/CaseNavigation';
 import '../styles/case-study.css';
+import '../styles/case-editorial.css';
 import '../styles/allianz-case-study.css';
 
 const root = '/images/allianz/';
@@ -25,18 +27,20 @@ function PatternMap({ rows }: { rows: string[][] }) {
   return <dl className="allianz-pattern-map">{rows.map(([label, detail]) => <div key={label}><dt>{label}</dt><dd>{detail}</dd></div>)}</dl>;
 }
 export function AllianzPage() {
-  return <div className="reckitt-case allianz-case"><PageShell><PageContainer>
-    <header className="case-hero">
-      <span className="case-hero-orbit" aria-hidden="true" /><span className="case-hero-square" aria-hidden="true" />
-      <p className="number-label case-label">Allianz Technology · Design Systems</p>
-      <h1>Designing scalable UX patterns for enterprise systems</h1>
-      <p className="case-subtitle">Creating reusable interaction patterns for onboarding and hierarchical data across complex enterprise applications.</p>
+  return <div className="reckitt-case case-editorial allianz-case"><PageShell><PageContainer>
+    <CaseIntro
+      label="ALLIANZ TECHNOLOGY — DESIGN SYSTEM"
+      heading="Creating reusable solutions for common design problems"
+      subcaption="Designing clear onboarding and data patterns that teams could reuse across complex products."
+      keywords="DESIGN SYSTEMS · ACCESSIBILITY · ENTERPRISE · COMPONENTS"
+      cover={<CaseImage root="/images/homepage/" file="Allianz.png" alt="Allianz" caption="Allianz" width={620} height={400} eager />}
+      whiteCover
+    >
       <dl className="case-metadata">
         <div><dt className="number-label">Company</dt><dd>Allianz Technology</dd></div>
         <div><dt className="number-label">Role</dt><dd>UX/UI Designer</dd></div>
-        <div><dt className="number-label">Focus</dt><dd>Design Systems · Interaction Design<br />Enterprise UX · Documentation</dd></div>
       </dl>
-    </header>
+    </CaseIntro>
     <div className="case-body"><CaseNavigation items={chapters} caseNumber="05" /><article className="case-article" aria-label="Allianz Design System case study">
       <CaseChapter id="overview" number="00" label="Overview" title={<>Two problems.<br />One system-level challenge.</>}>
         <div className="case-reading case-prose"><p>At Allianz, I worked on recurring UX problems across enterprise applications: helping users understand new features without interrupting their work, and making hierarchical relationships clear inside dense tables.</p><p>The goal was to define reusable interaction patterns that teams could understand, document, and adopt through the design system.</p></div>

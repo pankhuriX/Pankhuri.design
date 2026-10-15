@@ -8,6 +8,6 @@ export function ExperimentPreview({ media, title, number }: { media?: Experiment
   return <div className={`experiment-preview${media ? ' experiment-preview--media' : ''}`}>
     {media?.type === 'word-game' ? <WordGamePreview /> : media?.type === 'image' ? <img src={media.src} alt={media.alt} loading="lazy" decoding="async" /> :
       media?.type === 'video' ? <ProjectVideo src={media.src} label={media.label} poster={media.poster} /> :
-      <><span className="number-label">{number} — Experiment</span><p>{title}</p><span className="number-label">Preview coming soon</span></>}
+      <><span className="number-label">{number}</span><p>{title}</p><span className="number-label">Preview coming soon</span></>}
   </div>;
 }

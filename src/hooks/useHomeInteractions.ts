@@ -45,6 +45,7 @@ export function useHomeInteractions(workAccess = false) {
     const moveCursor = (event: PointerEvent) => {
       if (!pointer.matches || event.pointerType !== 'mouse') return;
       const target = event.currentTarget as HTMLElement;
+      if (active && active !== target) active.removeAttribute('data-cursor-active');
       active = target;
       target.setAttribute('data-cursor-active', '');
       if (cursor.firstElementChild) cursor.firstElementChild.textContent = target.dataset.previewCursor || '';
@@ -68,7 +69,10 @@ export function useHomeInteractions(workAccess = false) {
       const header = document.querySelector('.site-header')?.getBoundingClientRect().height || 0;
       const top = Math.max(base, header);
       list.style.setProperty('--stack-header', `${top}px`);
-      list.classList.toggle('project-list--stack', media.matches && tallest + top + step * (sheets.length - 1) <= innerHeight);
+      // Compress exposed sheet strips on short desktops instead of losing the stack.
+      const availableStep = Math.max(0, Math.min(step, (innerHeight - top - tallest) / Math.max(1, sheets.length - 1)));
+      list.style.setProperty('--stack-visible-step', `${availableStep}px`);
+      list.classList.toggle('project-list--stack', sheets.length > 0 && media.matches && tallest + top <= innerHeight);
       heroBounds = geometry.getBoundingClientRect();
       cursorRadius = parseFloat(getComputedStyle(cursor).width) / 2 || 0;
     };

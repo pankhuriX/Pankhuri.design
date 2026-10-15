@@ -1,0 +1,13 @@
+/* Short HTML annotations remain readable independently of screenshot scaling.
+   Curved SVG strokes are annotation arrows, not changes to the source artwork. */
+.legacy-notes { display: flex; justify-content: space-between; gap: var(--space-6); }
+.legacy-note { display: flex; flex-direction: column; align-items: flex-start; max-width: 50%; font-size: var(--text-label); line-height: var(--leading-body); }
+.legacy-note:last-child { align-items: flex-end; text-align: right; }
+.legacy-note svg { width: var(--space-16); height: var(--space-8); fill: none; stroke: var(--case-accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.legacy-note:last-child svg { transform: scaleX(-1); }
+.legacy-note--up { flex-direction: column-reverse; }
+.legacy-note--up svg { transform: scaleY(-1); }
+.legacy-note--up:last-child svg { transform: scale(-1); }
+.legacy-portal figure > a { display: block; }
+.legacy-portal figcaption { margin-block-start: var(--space-6); }
+@media (min-width: 48rem) { .legacy-note { font-size: var(--text-body); } }
