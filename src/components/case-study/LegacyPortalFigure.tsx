@@ -12,7 +12,7 @@ function Annotation({ children, upward = false }: { children: string; upward?: b
 }
 
 export function LegacyPortalFigure() {
-  const src = caseAsset('Legacy portal.png');
+  const src = caseAsset('Legacy Portal.png');
   return <Reveal className="case-media legacy-portal"><figure>
     <div className="legacy-notes"><Annotation>Unclear navigation</Annotation><Annotation>Weak visual hierarchy</Annotation></div>
     <a href={src} target="_blank" rel="noopener noreferrer" aria-label="Legacy portal — open full-size image in a new tab">
