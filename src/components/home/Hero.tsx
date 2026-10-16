@@ -11,7 +11,8 @@ export function Hero() {
       <div className="hero-main"><div className="hero-heading"><NumberLabel number="00">Welcome</NumberLabel><h1 id="hero-title"><span>PANKHURI</span><span>PRODUCT</span><span>DESIGNER</span></h1></div>
       <HeroGeometry />
       <p className="hero-principles">PEOPLE<br />SYSTEMS<br />BETTER EXPERIENCES</p>
-      <div className="hero-intro"><p>Designing digital products and systems at the intersection of people, technology, and real-world impact.</p>
+      <div className="hero-intro"><p><strong>Give me a messy workflow and I’ll probably want to fix it.</strong></p>
+        <p className="hero-intro-support">I use research, systems thinking, and prototyping to turn complex products into experiences people can actually understand.</p>
         <a className="text-link arrow-link" href="#work">Explore selected work <span aria-hidden="true">↗</span></a>
       </div>
       </div><div className="hero-bottom"><p className="hero-signature">INSPIRED BY<br />WEIMAR MODERNISM</p><button className="hero-motion-pause" type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? 'Resume hero motion' : 'Pause hero motion'}</button><GridToggle className="hero-grid-toggle" /><a className="hero-scroll arrow-link" href="#work">Scroll <span aria-hidden="true">↓</span></a></div>

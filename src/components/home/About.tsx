@@ -12,6 +12,5 @@ export function About() {
         <div className="about-detail"><h3 className="number-label">Tools</h3><p>Figma · Sketch · Miro · Adobe CC<br />Claude Code · Codex · MCP</p></div>
       </div>
     </div>
-    <div className="about-signoff"><span className="about-signoff-rule" aria-hidden="true" /><span className="about-signoff-square" aria-hidden="true" /><p>DESIGN<br />PEOPLE<br />SYSTEMS<br />SOCIETY</p></div>
   </PageContainer></section>;
 }

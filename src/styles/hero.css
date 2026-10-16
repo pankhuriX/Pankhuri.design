@@ -75,7 +75,7 @@
   .hero-line-v1 { left: 100%; top: 0; height: 24%; }
   .hero-line-v2 { left: 39%; top: 38.4%; height: 61.6%; }
   .hero-principles { align-self: start; padding-block-start: var(--space-16); }
-  .hero-intro { margin-inline: calc(-1 * var(--space-4)) var(--space-4); margin-block-end: var(--space-24); padding-block-start: var(--space-8); align-self: end; border-block-start: var(--rule-strong); }
+  .hero-intro { margin-inline: var(--space-4) calc(-1 * var(--space-4)); margin-block-end: var(--space-24); padding-block-start: var(--space-8); align-self: end; border-block-start: var(--rule-strong); }
   .hero-intro::after { content: ''; position: absolute; inset-inline-start: -1px; top: 100%; height: var(--space-24); border-inline-start: var(--rule-strong); }
   .hero .hero-bottom { grid-area: 1 / 1; align-self: end; min-height: var(--space-16); margin-block-start: 0; padding-block-end: var(--space-6); }
   .hero-intro p { font-size: var(--text-body-lg); line-height: var(--leading-body-lg); }
@@ -91,3 +91,6 @@
 }
 @media (prefers-reduced-motion:reduce) { .hero-shape, .hero-line, .hero-portrait { animation: none !important; transition: none !important; transform: none !important; } }
 @media (max-width:79.999rem), (prefers-reduced-motion:reduce), (pointer:coarse), (hover:none) { .hero-motion-pause { display: none; } }
+
+/* Supporting copy uses the existing body scale beneath the personal statement. */
+.hero-intro p.hero-intro-support { font-size: var(--text-body); line-height: var(--leading-body); }

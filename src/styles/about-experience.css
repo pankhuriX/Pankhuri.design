@@ -38,9 +38,6 @@
   .about-copy { --about-gutter: calc(var(--space-16) + var(--space-4)); grid-column: 5 / -1; }
   .about-copy > p { max-width: var(--reading-max); }
   .about-detail p { font-size: var(--text-body); line-height: var(--leading-body); }
-  .about-section .about-signoff { gap: var(--space-8); }
-  .about-section .about-signoff-square { width: var(--space-24); height: var(--space-24); }
-  .about-section .about-signoff p { font-size: var(--text-body); line-height: var(--leading-body); }
 }
 
 .principles-heading { margin-block-start: var(--space-4); font-size: var(--text-h2); line-height: var(--leading-h2); letter-spacing: var(--tracking-h2); }
@@ -53,10 +50,6 @@
   .principles-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
 }
 
-.about-signoff { display: flex; align-items: center; gap: var(--space-6); margin-block-start: var(--space-6); }
-.about-signoff-rule { flex: 1; border-top: var(--rule-strong); }
-.about-signoff-square { width: var(--space-16); height: var(--space-16); background: var(--color-red); flex-shrink: 0; }
-.about-signoff p { font-size: var(--text-label); line-height: var(--leading-label); }
 /* All sections use PageContainer; only their internal editorial arrangements differ. */
 .about-page .testimonials > .page-container { display: grid; gap: var(--space-6); align-items: start; }
 .about-page .testimonial-heading { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); margin: 0; }
